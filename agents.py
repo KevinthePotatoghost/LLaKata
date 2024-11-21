@@ -3,7 +3,9 @@ import re
 from huggingface_hub import InferenceClient
 import streamlit as st
 
-client = InferenceClient(api_key=HF_TOKEN)
+hf_token = st.secrets["credentials"]["HF_TOKEN"]
+
+client = InferenceClient(api_key=hf_token)
 
 # Load the CSV data (adjust the path if necessary)
 csv_file = 'merged_file.csv'  # Adjust the path if necessary
