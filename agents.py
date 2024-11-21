@@ -4,7 +4,7 @@ from huggingface_hub import InferenceClient
 import streamlit as st
 
 # Initialize Hugging Face API client with your API key
-client = InferenceClient(api_key="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")
+client = InferenceClient(api_key="key")
 
 # Load the CSV data (adjust the path if necessary)
 csv_file = 'merged_file.csv'  # Adjust the path if necessary
