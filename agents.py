@@ -3,12 +3,7 @@ import re
 from huggingface_hub import InferenceClient
 import streamlit as st
 
-api_key = st.text_input("Enter your Hugging Face API Key:", type="password")
-
-if not api_key:
-    st.warning("Please enter your Hugging Face API key.")
-else:
-    client = InferenceClient(api_key=api_key)
+client = InferenceClient(api_key=HF_TOKEN)
 
 # Load the CSV data (adjust the path if necessary)
 csv_file = 'merged_file.csv'  # Adjust the path if necessary
