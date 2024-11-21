@@ -3,7 +3,7 @@ import re
 from huggingface_hub import InferenceClient
 import streamlit as st
 
-hf_token = st.secrets["credentials"]["HF_TOKEN"]
+hf_token = st.secrets["HF_TOKEN"]
 
 client = InferenceClient(api_key=hf_token)
 
