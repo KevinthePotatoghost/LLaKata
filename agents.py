@@ -63,7 +63,8 @@ if query:
                 You can recommend the best one. Do ask if they have a phone brand.
                 Show in USD"""
 
-        
+        response, history = compare.run_agent(prompt, st.session_state.history)
+        st.write(f"**Chatbot:** {response}")
     elif any(keyword in query.lower() for keyword in fridge_keywords):
         prompt = f"""You are a chatbot answering any questions about the fridge and freezer in \n {category.fridge, 
         category.fridge_freezer, category.freezer}\n. 
@@ -95,6 +96,9 @@ if query:
         prompt = f"""You are a chatbot answering any questions about the microwave in \n {category.microwave}\n. 
                     You have to stick to the list and try to list down.
                     You can recommend the best one. Show in USD"""
+        response, history = compare.run_agent(prompt, st.session_state.history)
+        st.write(f"**Chatbot:** {response}")
+        
     elif any(keyword in query.lower() for keyword in cpus_keywords):
         prompt = f"""You are a chatbot answering any questions about the cpus in \n {category.cpus}\n. 
                     You have to stick to the list and try to list down.
@@ -102,6 +106,7 @@ if query:
 
         response, history = compare.run_agent(prompt, st.session_state.history)
         st.write(f"**Chatbot:** {response}")
+        
     elif any(keyword in query.lower() for keyword in tvs_keywords):
         prompt = f"""You are a chatbot answering any questions about the TVs in \n {category.tvs}\n. 
                     You have to stick to the list and try to list down.\
