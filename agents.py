@@ -43,7 +43,7 @@ if query:
             # Display the model's response to the user
             st.write(f"**Chatbot:** \n{response}")
 
-    elif 'tell' in query.lower():
+    elif 'tell' in query.lower() or 'looking' in query.lower():
         response = compare.handle_product_query(query)
         st.write(f"**Chatbot:** {response}")
 
