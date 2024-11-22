@@ -96,11 +96,7 @@ def handle_product_query(query):
     # Define some common phrases to look for and remove from the query
     phrases_to_remove = [
         "i'm looking for",
-        "tell me about",
-        "give me details of",
-        "what is",
-        "can you show me",
-        "give me information on"
+        "tell me about"
     ]
     # Normalize query by making it lowercase and removing the phrases
     query_lower = query.lower()
