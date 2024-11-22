@@ -47,7 +47,7 @@ def handle_previous_orders(query):
         response, st.session_state.history = run_agent(prompt, st.session_state.history)
 
         # Return the model's response
-        return response
+        return response, prompt
     else:
         return "Sorry, I couldn't find a Customer ID in your request. Please try again."
 
@@ -69,7 +69,7 @@ def handle_order_status_check(query):
 
             # Use the model to generate a response
             response, st.session_state.history = run_agent(prompt, st.session_state.history)
-            return response
+            return response, prompt
 
         if 'status' in query.lower():
             status_response = check_order_status(order_id)
@@ -140,7 +140,7 @@ def handle_product_query(query):
         response, history = run_agent(prompt, st.session_state.history)
 
         # Display the model's response to the user
-        return response
+        return response, prompt
 
     # If there are multiple results, show the top N results
     if len(result) > 1:
@@ -150,7 +150,7 @@ def handle_product_query(query):
         for index, row in result.iterrows():
             response += f"\n{row['ProductName']} (ID: {row['Product ID']}) - {row['Price']}\n"
         response += "\nPlease be more specific to help narrow down the results."
-        return response
+        return response, prompt
 
 def query_huggingface_model(messages):
     response = client.chat.completions.create(
