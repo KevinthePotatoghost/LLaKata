@@ -80,6 +80,10 @@ def handle_order_status_check(query):
             response, st.session_state.history = run_agent(prompt, st.session_state.history)
             st.write(f"**Chatbot:** \n{response}")
 
+        if order_responses:
+            order_response =  "\n\n".join(order_responses)
+            st.write(f"**Chatbot:** \n{order_response}")
+
         else:
             return "Sorry, there are no relevant information"
     else:
