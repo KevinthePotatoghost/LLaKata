@@ -45,9 +45,8 @@ def handle_previous_orders(query):
 
         # Use the model to generate a response for the order status
         response, st.session_state.history = run_agent(prompt, st.session_state.history)
+        st.write(f"**Chatbot:** \n{response}")
 
-        # Return the model's response
-        return response, prompt
     else:
         return "Sorry, I couldn't find a Customer ID in your request. Please try again."
 
@@ -81,11 +80,12 @@ def handle_order_status_check(query):
 
             # Use the model to generate a response for the order status
             response, st.session_state.history = run_agent(prompt, st.session_state.history)
+            
 
             # Return the model's response
-            return response
         if order_responses:
-            return "\n\n".join(order_responses)
+            order_response =  "\n\n".join(order_responses)
+            st.write(f"**Chatbot:** \n{order_response}")
         else:
             return "Sorry, there are no relevant information"
     else:
