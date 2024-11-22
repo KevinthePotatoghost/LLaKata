@@ -51,7 +51,6 @@ if query:
     elif 'order id' in query.lower():
         # Handle the order status check
         response = compare.handle_order_status_check(query)
-        st.write(f"**Chatbot:** {response}")
 
     elif 'customer id' in query.lower():
         response = compare.handle_previous_orders(query)
