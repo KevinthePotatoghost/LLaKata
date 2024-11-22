@@ -56,7 +56,13 @@ if query:
     elif 'customer id' in query.lower():
         response = compare.handle_previous_orders(query)
         st.write(f"**Chatbot:** {response}")
-
+        
+    elif any(keyword in query.lower() for keyword in phone_keywords):
+        prompt = f"""You are a chatbot answering any questions about the phones in \n {category.phone,  
+                You have to stick to the list and try to list down.
+                You can recommend the best one. Show in USD
+                Do ask if they are looking for any specific brand."""
+        
     elif any(keyword in query.lower() for keyword in fridge_keywords):
         prompt = f"""You are a chatbot answering any questions about the fridge and freezer in \n {category.fridge, 
         category.fridge_freezer, category.freezer}\n. 
