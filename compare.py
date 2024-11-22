@@ -16,7 +16,6 @@ def check_order_status(order_id):
         shipped_date = result['ShippingDate'].iloc[0]
         shipping_date = pd.to_datetime(shipped_date)
         shipping_date_str = shipping_date.strftime('%d/%m/%Y')
-        return f"The status of your order with Order ID {order_id} is: {order_status}, it is shipped on {shipping_date_str}"
 
 def check_order_returnable(order_id):
     result = df[df['OrderID'] == order_id]
@@ -68,7 +67,7 @@ def handle_order_status_check(query):
 
             # Use the model to generate a response
             response, st.session_state.history = run_agent(prompt, st.session_state.history)
-
+            st.write(f"**Chatbot:** \n{response}")
         if 'status' in query.lower():
             status_response = check_order_status(order_id)
             order_responses.append(status_response)
@@ -81,10 +80,6 @@ def handle_order_status_check(query):
             response, st.session_state.history = run_agent(prompt, st.session_state.history)
             st.write(f"**Chatbot:** \n{response}")
 
-            # Return the model's response
-        if order_responses:
-            order_response =  "\n\n".join(order_responses)
-            st.write(f"**Chatbot:** \n{order_response}")
         else:
             return "Sorry, there are no relevant information"
     else:
