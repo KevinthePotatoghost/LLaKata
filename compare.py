@@ -150,7 +150,7 @@ def handle_product_query(query):
         for index, row in result.iterrows():
             response += f"\n{row['ProductName']} (ID: {row['Product ID']}) - {row['Price']}\n"
         response += "\nPlease be more specific to help narrow down the results."
-        return response, prompt
+        return response
 
 def query_huggingface_model(messages):
     response = client.chat.completions.create(
