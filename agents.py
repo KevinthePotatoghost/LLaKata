@@ -41,7 +41,7 @@ if query:
             response, history = compare.run_agent(prompt, st.session_state.history)
 
             # Display the model's response to the user
-        st.write(f"**Chatbot:** \n{response}")
+            st.write(f"**Chatbot:** \n{response}")
 
     elif 'tell' in query.lower():
         response = compare.handle_product_query(query)
