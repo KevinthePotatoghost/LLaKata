@@ -68,7 +68,7 @@ def handle_order_status_check(query):
 
             # Use the model to generate a response
             response, st.session_state.history = run_agent(prompt, st.session_state.history)
-            return response, prompt
+            st.write(f"**Chatbot:** \n{response}")
 
         if 'status' in query.lower():
             status_response = check_order_status(order_id)
@@ -80,7 +80,7 @@ def handle_order_status_check(query):
 
             # Use the model to generate a response for the order status
             response, st.session_state.history = run_agent(prompt, st.session_state.history)
-            
+            st.write(f"**Chatbot:** \n{response}")
 
             # Return the model's response
         if order_responses:
