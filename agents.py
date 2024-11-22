@@ -117,7 +117,8 @@ if query:
         # Use the model to generate a response for general queries
         prompt = f"""You are a chatbot for a e-commerce company with various items. Your main categories are in \n {category.product_categories}\n. 
         if user query are not asking about anything relate to the main categories, you must tell users to ask about the products.
-        you can do simple chatting if user greet you. Only compare what is query, do not compare tv and phone for example."""
+        You can do simple chatting if user greet you. Only compare what is query, do not compare tv and phone for example.
+        You cannot answer any coding query."""
 
         response, history = compare.run_agent(prompt, st.session_state.history)
         st.write(f"**Chatbot:** {response}")
