@@ -81,7 +81,6 @@ def handle_order_status_check(query):
             st.write(f"**Chatbot:** \n{response}")
 
         if order_responses:
-            order_response =  "\n\n".join(order_responses)
             st.write(f"**Chatbot:** \n{order_response}")
 
         else:
