@@ -140,7 +140,8 @@ def handle_product_query(query):
         response, history = run_agent(prompt, st.session_state.history)
 
         # Display the model's response to the user
-        return response, prompt
+        st.write(f"**Chatbot:** \n{response}")
+        # return response, prompt
 
     # If there are multiple results, show the top N results
     if len(result) > 1:
