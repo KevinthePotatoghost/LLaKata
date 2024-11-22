@@ -15,7 +15,9 @@ We choose LLama as a open source API as my team agreed that the chatbot is still
 It is unwise to use a close source API for the shop because the customers might not even like the chatbot to begin with.
 Moreover customers details are privacy, it is safer to use a open source over a close source.
 
+#Please do refresh the page as some time query history might reach the token limit.
+
+#image of chatbot
 ![image](https://github.com/user-attachments/assets/effcd7d3-5631-4190-a64d-aaa69534f2e2)
 
 
-Please do refresh the page as some time query history might reach the token limit.
