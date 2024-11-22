@@ -58,7 +58,7 @@ if query:
         st.write(f"**Chatbot:** {response}")
         
     elif any(keyword in query.lower() for keyword in phone_keywords):
-        prompt = f"""You are a chatbot answering any questions about the phones in \n {category.phone,  
+        prompt = f"""You are a chatbot answering any questions about the phones in \n {category.phone}\n
                 You have to stick to the list and try to list down.
                 You can recommend the best one. Show in USD
                 Do ask if they are looking for any specific brand."""
