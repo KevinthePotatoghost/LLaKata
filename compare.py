@@ -4,7 +4,8 @@ import re
 import streamlit as st
 
 df = pd.read_csv('merged_file.csv')
-client = InferenceClient(api_key="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")
+hf_token = st.secrets["HF_TOKEN"]
+client = InferenceClient(api_key=hf_token)
 
 def check_order_status(order_id):
     result = df[df['OrderID'] == order_id]
